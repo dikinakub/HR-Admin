@@ -1,0 +1,240 @@
+<!-- Start Header From **********************************************************************************************************-->
+<div class="sidenav">
+  <!--  พนักงาน(Employee) --------------------------------------------------------------------------------->
+  <div class="stylebutom">
+  <mat-accordion>
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>  <!--  เห็นเฉพาะ HR -->
+        <mat-label class="dd">
+          Employee
+        </mat-label>
+      </mat-expansion-panel-header>
+      <hr/>
+      <a routerLink="EmployeeAdd" (click)="openemployee_add()">New Employee</a>
+      <a routerLink="Employee">Employee Master</a>
+    </mat-expansion-panel>
+
+    <!--  การลา(leave) --------------------------------------------------------------------------------->
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-label class="dd">
+          Attendance
+        </mat-label>
+      </mat-expansion-panel-header>
+      <hr/>
+      <a routerLink="LeaveMain">Attendance</a> <!-- เห็นทุกคน ยกเว้น HR -->
+      <a routerLink="LeaveShow">Data Attendance</a>  <!-- เห็นทุกคน -->
+      <a routerLink="LeaveShowHR">Data Attendance For HR</a>   <!-- เห็นเฉพาะ HR -->
+      <a routerLink="LeaveApproveMan">Approve By MANAGER</a>   <!-- เห็นเฉพาะ MANAGER -->
+      <a routerLink="LeaveApproveSup">Approve By SUPERVISOR</a>   <!-- เห็นเฉพาะ SUPERVISOR -->
+    </mat-expansion-panel>
+
+    <!--  ขอล่วงเวลา(OT) --------------------------------------------------------------------------------->
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-label class="dd">
+          OverTime
+        </mat-label>
+      </mat-expansion-panel-header>
+      <hr/>
+      <a routerLink="OverTime">OverTime</a>
+      <a routerLink="OverTimeShow">Data OverTime</a>
+      <a routerLink="OverTimeApprove">Approve</a>
+    </mat-expansion-panel>
+
+    <!--  อบรม (Training) --------------------------------------------------------------------------------->
+
+    <mat-expansion-panel
+      (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-label class="dd">
+          Training
+        </mat-label>
+      </mat-expansion-panel-header>
+      <hr/>
+      <a routerLink="TrainAdd">Training</a>
+      <a routerLink="TrainShow">Data Training</a>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <button mat-raised-button color="primary" *ngIf="" routerLink="login" style="margin-right:10px ;color :#ffff">Login </button>
+  <button mat-raised-button color="primary" *ngIf="" routerLink="Logout" (click)="onLogout()" style="margin-right:10px ;color :#ffff">Logout </button>
+  </div>
+</div>
+
+
+<!-- End Header From **********************************************************************************************************-->
+
+
+<body class="bgimg">
+<div class="card">
+  <h2 class="a">New Employee</h2>
+  <form>
+    &nbsp;&nbsp;
+    <!--EMP_ID-->
+    <mat-form-field hintLabel="" style="width :100px">
+      <input matInput placeholder="รหัสพนักงาน"  autocomplete="off" required formControlName="employeeMasterCustomerCode_on" maxlength="6">
+      <mat-hint>
+
+      </mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--Pre_NAME-->
+    <mat-form-field class="formcenter" hintLabel=""  style="width :100px">
+      <mat-select placeholder="คำนำหน้า"  formControlName="employeeMasterPrefix_on">
+        <mat-option *ngFor="let prefix of prefixs" [value]="prefix.valueP">
+          <!-- {{prefix.viewValueP}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--F_NAME-->
+    <mat-form-field hintLabel="" style="width :125px" >
+      <input matInput placeholder="ชื่อ"  autocomplete="off" required  formControlName="employeeMasterFirstName_on">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--L_NAME-->
+    <mat-form-field hintLabel="" style="width :125px">
+      <input matInput placeholder="สกุล"  autocomplete="off"  formControlName="employeeMasterLastName_on">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--      N_NAME-->
+    <mat-form-field hintLabel="" style="width :100px">
+      <input matInput placeholder="ชื่อเล่น"  autocomplete="off"  formControlName="employeeMasterNickName_on">
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--&lt;!&ndash;        Gender       &ndash;&gt;-->
+    <mat-form-field  hintLabel="" class="formcenter"  style="width :80px">
+      <mat-select placeholder="เพศ"   formControlName="employeeMasterGender_on">
+        <mat-option *ngFor="let gender of genders" [value]="gender.valueG">
+          <!--{{gender.viewValueG}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--      Marital status  -->
+    <mat-form-field  hintLabel="" class="formcenter"  style="width :90px ; font-size: 13px">
+      <mat-select placeholder="สถานะภาพ"  formControlName="maritalStatus_on">
+        <mat-option *ngFor="let maritalStatus of maritalStatuss" [value]="maritalStatus.valueM">
+          <!-- {{maritalStatus.viewValueM}} -->
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+    <br> &nbsp;&nbsp;
+     <!--  BirthDate  -->
+    <mat-form-field hintLabel="" style="width :140px">
+      <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด" required autocomplete="off" formControlName="employeeMasterBirthDate_on">
+      <mat-datepicker-toggle matSuffix [for]="BirthDate" ></mat-datepicker-toggle>
+      <mat-datepicker #BirthDate></mat-datepicker>
+    </mat-form-field>
+    <br/> &nbsp;&nbsp;
+    <!--      personID-->
+    <mat-form-field hintLabel="" style="width :300px ;font-size:13px">
+      <input matInput type="text" placeholder="รหัสประจำตัวประชาชน หรือ หมายเลขหนังสือเดินทาง"  autocomplete="off"  formControlName="employeeMasterPersonID_on" maxlength="13">
+      <mat-hint>
+        <!-- {{ this.addEmpForm.value.employeeMasterPersonID_on?.length }} -->
+      </mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--      Home No.  -->
+    <mat-form-field hintLabel="ที่อยู่ตามบัตรประจำตัวประชาชน" style="width :300px ;font-size:13px">
+      <textarea matInput placeholder="ที่อยู่"  autocomplete="off"  formControlName="empAddressPerson_on"></textarea>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--      Bank -->
+    <mat-form-field class="formcenter" hintLabel="" style="width :140px">
+      <mat-select placeholder="ธนาคาร"  formControlName="bankName_on">
+        <mat-option *ngFor="let bank of Banks" [value]="bank.bankID">
+         <!-- {{bank.bankName}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br> &nbsp;&nbsp;
+    <!--        AccountNo.-->
+    <mat-form-field hintLabel="" style="width :300px">
+      <input matInput placeholder="เลขบัญชี"  autocomplete="off" formControlName="employeeMasterAccountNo_on" maxlength="10">
+      <mat-hint>
+       <!-- {{ this.addEmpForm.value.employeeMasterAccountNo_on?.length || 0}} / 10 -->
+      </mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--  call contact 1-->
+    <mat-form-field hintLabel="" style="width :100px" >
+      <input matInput placeholder="เบอร์โทร1"  autocomplete="off" formControlName="employeeMasterTel1_on" maxlength="10">
+      <mat-hint>
+      <!--  {{ this.addEmpForm.value.employeeMasterTel1_on?.length || 0}} / 10 -->
+      </mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!-- call contact 2-->
+    <mat-form-field hintLabel="" style="width :100px">
+      <input matInput placeholder="เบอร์โทร2"  autocomplete="off" formControlName="employeeMasterTel2_on" maxlength="10">
+      <mat-hint>
+       <!-- {{ this.addEmpForm.value.employeeMasterTel2_on?.length || 0}} / 10 -->
+      </mat-hint>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!--StartWork-->
+    <mat-form-field>
+      <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน" required autocomplete="off" formControlName="employeeMasterStartDate_on">
+      <mat-datepicker-toggle matSuffix [for]="startwork" ></mat-datepicker-toggle>
+      <mat-datepicker #startwork></mat-datepicker>
+    </mat-form-field>
+       <br> &nbsp;&nbsp;
+    <!-- ตำเเหน่ง -->
+    <mat-form-field class="formcenter" hintLabel=""  style="width :20%">
+      <mat-select placeholder="ตำแหน่ง" required formControlName="employeePositionName_on">
+        <mat-option *ngFor="let position of EmployeePositions" [value]="position.employeePositionID">
+         <!-- {{position.employeePositionName}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!-- แผนก -->
+    <mat-form-field class="formcenter" hintLabel="" style="width :20%">
+      <mat-select placeholder="แผนก" required formControlName="employeeDepartmentName_on">
+        <mat-option *ngFor="let Department of EmployeeDepartments" [value]="Department.employeeDepartmentID">
+          {{Department.employeeDepartmentThaiName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!-- ประเภทการทำงาน -->
+    <mat-form-field class="formcenter" hintLabel="" style="width :18%">
+      <mat-select placeholder="ประเภทการทำงาน" required formControlName="employeeTypeName_on">
+        <mat-option *ngFor="let EmployeeType of EmployeeTypes" [value]="EmployeeType.employeeTypeID">
+         <!-- {{EmployeeType.employeeTypeName}} -->
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    &nbsp;&nbsp;
+    <!-- วุฒิการศึกษา -->
+    <mat-form-field hintLabel="" style="width :120px">
+      <input matInput placeholder="วุฒิการศึกษา"  autocomplete="off" formControlName="education_on">
+    </mat-form-field>
+    <br> &nbsp;&nbsp;
+    <!-- ที่อยู่ที่ติดต่อได้ -->
+    <mat-form-field hintLabel="ที่อยู่ปัจจุบัน" style="width :400px">
+      <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้"  autocomplete="off" formControlName="empAddressReal_on"></textarea>
+    </mat-form-field>
+    <br/>
+    <hr/>
+
+    <div class="bottom-save">
+      <button mat-raised-button color="primary" matTooltip="บันทึก" matTooltipPosition="right">save</button>
+    </div>
+    <label style="color: #ff0000 ; font-size: 5px ; margin-left: 75%">*หมายเหตุ : ถ้าไม่ต้องการใส่ข้อมูล ให้ใส่เครื่องหมาย "-" แทนช่องว่าง</label>
+      </form>
+      </div>
+      </body>
+
+
+

@@ -1,4 +1,4 @@
-package com.example.demo.EmployeeEntity.Entity;
+package com.example.demo.Entity.EmployeeEntity;
 
 
 import lombok.*;
@@ -167,5 +167,5 @@ public class EmployeeMaster {
                     name = "role_id", referencedColumnName = "roleID"
             )
     )
-    private Collection<Role> roles; */
+    private Collection<Role> roles;*/
 }
