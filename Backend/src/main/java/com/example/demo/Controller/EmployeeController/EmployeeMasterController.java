@@ -1,7 +1,7 @@
 package com.example.demo.Controller.EmployeeController;
 
 import com.example.demo.Repository.EmployeeRepository.*;
-
+import com.example.demo.Entity.EmployeeEntity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

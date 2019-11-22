@@ -1,6 +1,7 @@
 package com.example.demo.Controller.EmployeeController;
 
 import com.example.demo.Repository.EmployeeRepository.*;
+import com.example.demo.Entity.EmployeeEntity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,11 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "*")
 public class AccountUserController {
 
-    @Autowired
-    private AccountUserRepository accountUserRepository;
+    @Autowired private AccountUserRepository accountUserRepository;
 
-    /*@PostMapping("/BookMeetingRoom/Report/{date}")
-    public Iterable<Report> Report(@PathVariable String date) {
-        return this.reportRepository.getDateReport(date);
-    }*/
+    @PostMapping("/ILS_HR/{username}/{password}")
+    public AccountUsers accountUsers(@PathVariable String username , @PathVariable String password){
+        AccountUsers accountUsers1 = new AccountUsers();
+        accountUsers1.setUsername(username);
+        accountUsers1.setPassword(password);
+        accountUserRepository.save(accountUsers1);
+        return accountUsers1;
+        //return this.accountUserRepository.findByUsernameAndPassword(userid,password);
+
+    }
 }

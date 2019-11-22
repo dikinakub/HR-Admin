@@ -11,6 +11,7 @@ import java.util.Collection;
 @CrossOrigin(origins = "*")
 public interface AccountUserRepository extends JpaRepository<AccountUsers,Long> {
 
-    AccountUsers findByaccountID(String accountID);
+    AccountUsers findByUsernameAndPassword(String username,String password);
+
 
 }

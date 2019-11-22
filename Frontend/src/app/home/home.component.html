@@ -74,13 +74,28 @@
 <!-- End Header From **********************************************************************************************************-->
 
 
-
-
 <body class="bgimg">
 
-<div class="">
+<div class="card">
   <h1 align="center">Welcome to human resourcse system</h1>
-
+  <p align="center">
+    <mat-form-field appearance="outline" style="width:30%;">
+      <mat-label>Enter your username</mat-label>
+      <input matInput placeholder="username" [(ngModel)]="user">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline" style="width:30%;" >
+      <mat-label>Enter your password</mat-label>
+      <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" [(ngModel)]="password">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </p>
+    <div class="example-button-row" align="center">
+      <button mat-raised-button (click) = "SubmitData()" color="primary"  style="margin-left: 0px ; width: 220px ; font-size: 20px"  >Login</button>
+    </div>
 
 
 

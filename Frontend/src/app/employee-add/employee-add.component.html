@@ -80,7 +80,7 @@
     &nbsp;&nbsp;
     <!--EMP_ID-->
     <mat-form-field hintLabel="" style="width :100px">
-      <input matInput placeholder="รหัสพนักงาน"  autocomplete="off" required formControlName="employeeMasterCustomerCode_on" maxlength="6">
+      <input matInput placeholder="รหัสพนักงาน"  autocomplete="off" maxlength="6">
       <mat-hint>
 
       </mat-hint>
@@ -88,17 +88,17 @@
     &nbsp;&nbsp;
     <!--F_NAME-->
     <mat-form-field hintLabel="" style="width :125px" >
-      <input matInput placeholder="ชื่อ"  autocomplete="off" required  formControlName="employeeMasterFirstName_on">
+      <input matInput placeholder="ชื่อ"  autocomplete="off">
     </mat-form-field>
     &nbsp;&nbsp;
     <!--L_NAME-->
     <mat-form-field hintLabel="" style="width :125px">
-      <input matInput placeholder="สกุล"  autocomplete="off"  formControlName="employeeMasterLastName_on">
+      <input matInput placeholder="สกุล"  autocomplete="off" >
     </mat-form-field>
     &nbsp;&nbsp;
     <!--      N_NAME-->
     <mat-form-field hintLabel="" style="width :100px">
-      <input matInput placeholder="ชื่อเล่น"  autocomplete="off"  formControlName="employeeMasterNickName_on">
+      <input matInput placeholder="ชื่อเล่น"  autocomplete="off" >
     </mat-form-field>
     &nbsp;&nbsp;
     <!--&lt;!&ndash;        Gender       &ndash;&gt;-->
@@ -111,7 +111,7 @@
     &nbsp;&nbsp;
     <!--      Marital status  -->
     <mat-form-field  hintLabel="" class="formcenter"  style="width :90px ; font-size: 13px">
-      <mat-select placeholder="สถานะภาพ"  formControlName="maritalStatus_on">
+      <mat-select placeholder="สถานะภาพ" >
         <mat-option value="โสด" >โสด</mat-option>
         <mat-option value="ไม่โสด" >ไม่โสด</mat-option>
        </mat-select>
@@ -119,14 +119,14 @@
     &nbsp;&nbsp;
      <!--  BirthDate  -->
     <mat-form-field hintLabel="" style="width :140px">
-      <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด" required autocomplete="off" formControlName="employeeMasterBirthDate_on">
+      <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด"  >
       <mat-datepicker-toggle matSuffix [for]="BirthDate" ></mat-datepicker-toggle>
       <mat-datepicker #BirthDate></mat-datepicker>
     </mat-form-field>
     <br/> &nbsp;&nbsp;
     <!--      personID-->
     <mat-form-field hintLabel="" style="width :300px ;font-size:13px">
-      <input matInput type="text" placeholder="รหัสประจำตัวประชาชน หรือ หมายเลขหนังสือเดินทาง"  autocomplete="off"  formControlName="employeeMasterPersonID_on" maxlength="13">
+      <input matInput type="text" placeholder="รหัสประจำตัวประชาชน หรือ หมายเลขหนังสือเดินทาง"  autocomplete="off" maxlength="13">
       <mat-hint>
         <!-- {{ this.addEmpForm.value.employeeMasterPersonID_on?.length }} -->
       </mat-hint>
@@ -134,12 +134,12 @@
     &nbsp;&nbsp;
     <!--      Home No.  -->
     <mat-form-field hintLabel="ที่อยู่ตามบัตรประจำตัวประชาชน" style="width :300px ;font-size:13px">
-      <textarea matInput placeholder="ที่อยู่"  autocomplete="off"  formControlName="empAddressPerson_on"></textarea>
+      <textarea matInput placeholder="ที่อยู่"  autocomplete="off" ></textarea>
     </mat-form-field>
     &nbsp;&nbsp;
     <!--      Bank -->
     <mat-form-field class="formcenter" hintLabel="" style="width :140px">
-      <mat-select placeholder="ธนาคาร"  formControlName="bankName_on">
+      <mat-select placeholder="ธนาคาร"  >
         <mat-option value="ธนาคารกรุงศรีอยุธยา">ธนาคารกรุงศรีอยุธยา จำกัด(มหาชน)</mat-option>
         <mat-option value="ธนาคารไทยพาณิชย์" >ธนาคารไทยพาณิชย์ จำกัด(มหาชน)</mat-option>
         <mat-option value="ธนาคารทหารไทย" >ธนาคารทหารไทย จำกัด(มหาชน)</mat-option>
@@ -152,7 +152,7 @@
     <br> &nbsp;&nbsp;
     <!--        AccountNo.-->
     <mat-form-field hintLabel="" style="width :300px">
-      <input matInput placeholder="เลขบัญชี"  autocomplete="off" formControlName="employeeMasterAccountNo_on" maxlength="10">
+      <input matInput placeholder="เลขบัญชี"  autocomplete="off"  maxlength="10">
       <mat-hint>
        <!-- {{ this.addEmpForm.value.employeeMasterAccountNo_on?.length || 0}} / 10 -->
       </mat-hint>
@@ -160,7 +160,7 @@
     &nbsp;&nbsp;
     <!--  call contact 1-->
     <mat-form-field hintLabel="" style="width :130px" >
-      <input matInput placeholder="เบอร์โทร1"  autocomplete="off" formControlName="employeeMasterTel1_on" maxlength="10">
+      <input matInput placeholder="เบอร์โทร1"  autocomplete="off" maxlength="10">
       <mat-hint>
       <!--  {{ this.addEmpForm.value.employeeMasterTel1_on?.length || 0}} / 10 -->
       </mat-hint>
@@ -176,14 +176,14 @@
     &nbsp;&nbsp;
     <!--StartWork-->
     <mat-form-field>
-      <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน" required autocomplete="off" formControlName="employeeMasterStartDate_on">
+      <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน">
       <mat-datepicker-toggle matSuffix [for]="startwork" ></mat-datepicker-toggle>
       <mat-datepicker #startwork></mat-datepicker>
     </mat-form-field>
        <br> &nbsp;&nbsp;
     <!-- ตำเเหน่ง -->
     <mat-form-field class="formcenter" hintLabel=""  style="width :20%">
-      <mat-select placeholder="ตำแหน่ง" required formControlName="employeePositionName_on">
+      <mat-select placeholder="ตำแหน่ง">
         <mat-option value="Forklift pgp,smtl" > Forklift pgp,smtl</mat-option>
         <mat-option value="Account Executive & CS" >Account Executive & CS</mat-option>
         <mat-option value="Account Executive Admin" > Account Executive Admin</mat-option>
@@ -239,7 +239,7 @@
     &nbsp;&nbsp;
     <!-- แผนก -->
     <mat-form-field class="formcenter" hintLabel="" style="width :20%">
-      <mat-select placeholder="แผนก" required formControlName="employeeDepartmentName_on">
+      <mat-select placeholder="แผนก">
         <mat-option value="IT" >IT</mat-option>
         <mat-option value="AE" >AE</mat-option>
         <mat-option value="IMC" >IMC</mat-option>
@@ -257,7 +257,7 @@
     &nbsp;&nbsp;
     <!-- ประเภทการทำงาน -->
     <mat-form-field class="formcenter" hintLabel="" style="width :18%">
-      <mat-select placeholder="ประเภทการทำงาน" required formControlName="employeeTypeName_on">
+      <mat-select placeholder="ประเภทการทำงาน">
         <mat-option value="นักศึกษาฝึกงาน" >นักศึกษาฝึกงาน</mat-option>
         <mat-option value="รายเดือน" >รายเดือน</mat-option>
         <mat-option value="รายวัน" >รายวัน</mat-option>
@@ -267,7 +267,7 @@
     &nbsp;&nbsp;
     <!-- วุฒิการศึกษา -->
     <mat-form-field hintLabel="" style="width :120px">
-      <mat-select placeholder="วุฒิการศึกษา" required formControlName="employeeTypeName_on">
+      <mat-select placeholder="วุฒิการศึกษา" >
         <mat-option value="ม.3" >ม.3</mat-option>
         <mat-option value="ม.6" >ม.6</mat-option>
         <mat-option value="ป.ตรี" >ป.ตรี</mat-option>
@@ -278,7 +278,7 @@
     <br> &nbsp;&nbsp;
     <!-- ที่อยู่ที่ติดต่อได้ -->
     <mat-form-field hintLabel="ที่อยู่ปัจจุบัน" style="width :400px">
-      <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้"  autocomplete="off" formControlName="empAddressReal_on"></textarea>
+      <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้"  ></textarea>
     </mat-form-field>
     <br/>
     <hr/>
