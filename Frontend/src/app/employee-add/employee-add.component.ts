@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-
+  prefixnameSelect : '';
   constructor() { }
 
   ngOnInit() {

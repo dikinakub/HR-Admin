@@ -76,7 +76,6 @@
 
 <body class="bgimg">
 <div class="card">
-  <h2 class="a">New Employee</h2>
   <form>
     &nbsp;&nbsp;
     <!--EMP_ID-->
@@ -85,15 +84,6 @@
       <mat-hint>
 
       </mat-hint>
-    </mat-form-field>
-    &nbsp;&nbsp;
-    <!--Pre_NAME-->
-    <mat-form-field class="formcenter" hintLabel=""  style="width :100px">
-      <mat-select placeholder="คำนำหน้า"  formControlName="employeeMasterPrefix_on">
-        <mat-option *ngFor="let prefix of prefixs" [value]="prefix.valueP">
-          <!-- {{prefix.viewValueP}} -->
-        </mat-option>
-      </mat-select>
     </mat-form-field>
     &nbsp;&nbsp;
     <!--F_NAME-->
@@ -112,23 +102,21 @@
     </mat-form-field>
     &nbsp;&nbsp;
     <!--&lt;!&ndash;        Gender       &ndash;&gt;-->
-    <mat-form-field  hintLabel="" class="formcenter"  style="width :80px">
-      <mat-select placeholder="เพศ"   formControlName="employeeMasterGender_on">
-        <mat-option *ngFor="let gender of genders" [value]="gender.valueG">
-          <!--{{gender.viewValueG}} -->
-        </mat-option>
+    <mat-form-field  style="width :80px">
+      <mat-select placeholder="เพศ">
+        <mat-option value="ชาย" >ชาย</mat-option>
+        <mat-option value="หญิง">หญิง</mat-option>
       </mat-select>
     </mat-form-field>
     &nbsp;&nbsp;
     <!--      Marital status  -->
     <mat-form-field  hintLabel="" class="formcenter"  style="width :90px ; font-size: 13px">
       <mat-select placeholder="สถานะภาพ"  formControlName="maritalStatus_on">
-        <mat-option *ngFor="let maritalStatus of maritalStatuss" [value]="maritalStatus.valueM">
-          <!-- {{maritalStatus.viewValueM}} -->
-         </mat-option>
+        <mat-option value="โสด" >โสด</mat-option>
+        <mat-option value="ไม่โสด" >ไม่โสด</mat-option>
        </mat-select>
      </mat-form-field>
-    <br> &nbsp;&nbsp;
+    &nbsp;&nbsp;
      <!--  BirthDate  -->
     <mat-form-field hintLabel="" style="width :140px">
       <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด" required autocomplete="off" formControlName="employeeMasterBirthDate_on">
@@ -152,9 +140,13 @@
     <!--      Bank -->
     <mat-form-field class="formcenter" hintLabel="" style="width :140px">
       <mat-select placeholder="ธนาคาร"  formControlName="bankName_on">
-        <mat-option *ngFor="let bank of Banks" [value]="bank.bankID">
-         <!-- {{bank.bankName}} -->
-        </mat-option>
+        <mat-option value="ธนาคารกรุงศรีอยุธยา">ธนาคารกรุงศรีอยุธยา จำกัด(มหาชน)</mat-option>
+        <mat-option value="ธนาคารไทยพาณิชย์" >ธนาคารไทยพาณิชย์ จำกัด(มหาชน)</mat-option>
+        <mat-option value="ธนาคารทหารไทย" >ธนาคารทหารไทย จำกัด(มหาชน)</mat-option>
+        <mat-option value="ธนาคารกรุงเทพ" > ธนาคารกรุงเทพ จำกัด(มหาชน)</mat-option>
+        <mat-option value="ธนาคารออมสิน" >ธนาคารออมสิน</mat-option>
+        <mat-option value="ธนาคารกสิกรไทย" >ธนาคารกสิกรไทย จำกัด(มหาชน)</mat-option>
+        <mat-option value="ธนาคารกรุงไทย" >ธนาคารกรุงไทย จำกัด(มหาชน)</mat-option>
       </mat-select>
     </mat-form-field>
     <br> &nbsp;&nbsp;
@@ -167,20 +159,20 @@
     </mat-form-field>
     &nbsp;&nbsp;
     <!--  call contact 1-->
-    <mat-form-field hintLabel="" style="width :100px" >
+    <mat-form-field hintLabel="" style="width :130px" >
       <input matInput placeholder="เบอร์โทร1"  autocomplete="off" formControlName="employeeMasterTel1_on" maxlength="10">
       <mat-hint>
       <!--  {{ this.addEmpForm.value.employeeMasterTel1_on?.length || 0}} / 10 -->
       </mat-hint>
     </mat-form-field>
-    &nbsp;&nbsp;
-    <!-- call contact 2-->
+   <!-- &nbsp;&nbsp;
+    <!-- call contact 2--
     <mat-form-field hintLabel="" style="width :100px">
       <input matInput placeholder="เบอร์โทร2"  autocomplete="off" formControlName="employeeMasterTel2_on" maxlength="10">
       <mat-hint>
-       <!-- {{ this.addEmpForm.value.employeeMasterTel2_on?.length || 0}} / 10 -->
+       <!-- {{ this.addEmpForm.value.employeeMasterTel2_on?.length || 0}} / 10 --
       </mat-hint>
-    </mat-form-field>
+    </mat-form-field> -->
     &nbsp;&nbsp;
     <!--StartWork-->
     <mat-form-field>
@@ -192,33 +184,96 @@
     <!-- ตำเเหน่ง -->
     <mat-form-field class="formcenter" hintLabel=""  style="width :20%">
       <mat-select placeholder="ตำแหน่ง" required formControlName="employeePositionName_on">
-        <mat-option *ngFor="let position of EmployeePositions" [value]="position.employeePositionID">
-         <!-- {{position.employeePositionName}} -->
-        </mat-option>
+        <mat-option value="Forklift pgp,smtl" > Forklift pgp,smtl</mat-option>
+        <mat-option value="Account Executive & CS" >Account Executive & CS</mat-option>
+        <mat-option value="Account Executive Admin" > Account Executive Admin</mat-option>
+        <mat-option value="ANALYST" > ANALYST</mat-option>
+        <mat-option value="ANALYST TSP" >ANALYST TSP</mat-option>
+        <mat-option value="Ast. IMC Manager L.2" >Ast. IMC Manager L.2</mat-option>
+        <mat-option value="Ast. Opt. Manager L.1" > Ast. Opt. Manager L.1</mat-option>
+        <mat-option value="Business Development" >Business Development</mat-option>
+        <mat-option value="Checker" >Checker</mat-option>
+        <mat-option value="Checker Forklift pgp,smtl" >Checker Forklift pgp,smtl</mat-option>
+        <mat-option value="Daily Checker" >Daily Checker</mat-option>
+        <mat-option value="Daily Checker Amazon" >Daily Checker Amazon</mat-option>
+        <mat-option value="Daily Checker TSP" >Daily Checker TSP</mat-option>
+        <mat-option value="Daily FL Driver" >Daily FL Driver</mat-option>
+        <mat-option value="Daily Forklift Driver" >Daily Forklift Driver</mat-option>
+        <mat-option value="Daily Picker" >Daily Picker</mat-option>
+        <mat-option value="Daily Picker  TSP" > Daily Picker  TSP</mat-option>
+        <mat-option value="Daily Picker Amazon" >Daily Picker Amazon</mat-option>
+        <mat-option value="Daily Picker Chester" >Daily Picker Chester</mat-option>
+        <mat-option value="Daily Picker PTT" >Daily Picker PTT</mat-option>
+        <mat-option value="Daily Picker Receiving" > Daily Picker Receiving</mat-option>
+        <mat-option value="Daily Picker STL" >Daily Picker STL</mat-option>
+        <mat-option value="Daily Picker TKNR" >Daily Picker TKNR</mat-option>
+        <mat-option value="Daily Picker Vcan" >Daily Picker Vcan</mat-option>
+        <mat-option value="Daily Receiving" > Daily Receiving</mat-option>
+        <mat-option value="Daily TSP Checker" > Daily TSP Checker</mat-option>
+        <mat-option value="Daily คนพิการ" >Daily คนพิการ</mat-option>
+        <mat-option value="Driver" >Driver</mat-option>
+        <mat-option value="HR and Admin Officer">HR and Admin Officer</mat-option>
+        <mat-option value="Inventory Admin">Inventory Admin</mat-option>
+        <mat-option value="IT Programmer"> IT Programmer</mat-option>
+        <mat-option value="Leader" >Leader</mat-option>
+        <mat-option value="Leader Transport" >Leader Transport</mat-option>
+        <mat-option value="Leader TSP Operation" > Leader TSP Operation</mat-option>
+        <mat-option value="Manager" >Manager</mat-option>
+        <mat-option value="Manager Transport" >Manager Transport</mat-option>
+        <mat-option value="Monthly  Checker" >Monthly  Checker</mat-option>
+        <mat-option value="Monthly Checker" >Monthly Checker</mat-option>
+        <mat-option value="Monthly Driver" >Monthly Driver</mat-option>
+        <mat-option value="Monthly Forklift Drivers" >Monthly Forklift Drivers</mat-option>
+        <mat-option value="Monthly IT" >Monthly IT</mat-option>
+        <mat-option value="Monthly IT Suppervisor" >Monthly IT Suppervisor</mat-option>
+        <mat-option value="Monthly Receiving Checker" >Monthly Receiving Checker</mat-option>
+        <mat-option value="Monthly TSP Admin" >Monthly TSP Admin</mat-option>
+        <mat-option value="MonthlyForklift Driver,Checker PZ Loscam" >MonthlyForklift Driver,Checker PZ Loscam</mat-option>
+        <mat-option value="Supervisor" >Supervisor</mat-option>
+        <mat-option value="Supervisor Operation Level 2" >Supervisor Operation Level 2</mat-option>
+        <mat-option value="Supervisor Transport" >Supervisor Transport</mat-option>
+        <mat-option value="เจ้าหน้าที่ความปลอดภัยในการทำงานระดับวิชาชีพ" >เจ้าหน้าที่ความปลอดภัยในการทำงานระดับวิชาชีพ</mat-option>
+        <mat-option value="แม่บ้าน" >แม่บ้าน</mat-option>
       </mat-select>
     </mat-form-field>
     &nbsp;&nbsp;
     <!-- แผนก -->
     <mat-form-field class="formcenter" hintLabel="" style="width :20%">
       <mat-select placeholder="แผนก" required formControlName="employeeDepartmentName_on">
-        <mat-option *ngFor="let Department of EmployeeDepartments" [value]="Department.employeeDepartmentID">
-          {{Department.employeeDepartmentThaiName}}
-        </mat-option>
+        <mat-option value="IT" >IT</mat-option>
+        <mat-option value="AE" >AE</mat-option>
+        <mat-option value="IMC" >IMC</mat-option>
+        <mat-option value="Inventory" >Inventory</mat-option>
+        <mat-option value="OPT" >OPT</mat-option>
+        <mat-option value="TSP" >TSP</mat-option>
+        <mat-option value="ANALYST" >ANALYST</mat-option>
+        <mat-option value="HR" >HR</mat-option>
+        <mat-option value="Safety" >Safety</mat-option>
+        <mat-option value="BD" >BD</mat-option>
+        <mat-option value="แม่บ้าน" >แม่บ้าน</mat-option>
+        <mat-option value="Trainee" >Trainee</mat-option>
       </mat-select>
     </mat-form-field>
     &nbsp;&nbsp;
     <!-- ประเภทการทำงาน -->
     <mat-form-field class="formcenter" hintLabel="" style="width :18%">
       <mat-select placeholder="ประเภทการทำงาน" required formControlName="employeeTypeName_on">
-        <mat-option *ngFor="let EmployeeType of EmployeeTypes" [value]="EmployeeType.employeeTypeID">
-         <!-- {{EmployeeType.employeeTypeName}} -->
-        </mat-option>
+        <mat-option value="นักศึกษาฝึกงาน" >นักศึกษาฝึกงาน</mat-option>
+        <mat-option value="รายเดือน" >รายเดือน</mat-option>
+        <mat-option value="รายวัน" >รายวัน</mat-option>
+        <mat-option value="รายวันชั่วคราว" >รายวันชั่วคราว</mat-option>
       </mat-select>
     </mat-form-field>
     &nbsp;&nbsp;
     <!-- วุฒิการศึกษา -->
     <mat-form-field hintLabel="" style="width :120px">
-      <input matInput placeholder="วุฒิการศึกษา"  autocomplete="off" formControlName="education_on">
+      <mat-select placeholder="วุฒิการศึกษา" required formControlName="employeeTypeName_on">
+        <mat-option value="ม.3" >ม.3</mat-option>
+        <mat-option value="ม.6" >ม.6</mat-option>
+        <mat-option value="ป.ตรี" >ป.ตรี</mat-option>
+        <mat-option value="ป.โท" >ป.โท</mat-option>
+        <mat-option value="ป.เอก" >ป.เอก</mat-option>
+      </mat-select>
     </mat-form-field>
     <br> &nbsp;&nbsp;
     <!-- ที่อยู่ที่ติดต่อได้ -->
@@ -228,13 +283,11 @@
     <br/>
     <hr/>
 
-    <div class="bottom-save">
-      <button mat-raised-button color="primary" matTooltip="บันทึก" matTooltipPosition="right">save</button>
+    <div class="bottom-save" align="center">
+      <button mat-raised-button color="primary" matTooltip="บันทึก" matTooltipPosition="right" style="margin-left: 0px ; width: 220px ; font-size: 20px">save</button>
     </div>
-    <label style="color: #ff0000 ; font-size: 5px ; margin-left: 75%">*หมายเหตุ : ถ้าไม่ต้องการใส่ข้อมูล ให้ใส่เครื่องหมาย "-" แทนช่องว่าง</label>
+    <label style="color: #ff0000 ; font-size: 10px ; margin-left: 0%">*หมายเหตุ : ถ้าไม่ต้องการใส่ข้อมูล ให้ใส่เครื่องหมาย "-" แทนช่องว่าง</label>
       </form>
       </div>
       </body>
-
-
 

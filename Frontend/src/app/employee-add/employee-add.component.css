@@ -27,7 +27,7 @@ mat-drawer-content {
   left: 0px;
   background-color: #000033;
   overflow-x: hidden;
-  padding-top: 20px;
+  padding-top: 0px;
   color: #00ff00;
   opacity: 0.75;
   transition: 0.3s;
@@ -45,6 +45,7 @@ mat-drawer-content {
 .stylebutom{
   width:98%;
   margin-left: 1%;
+  padding-top: 20px;
 }
 
 .sidenav a:hover {

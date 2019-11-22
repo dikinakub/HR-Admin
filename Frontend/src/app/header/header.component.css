@@ -75,7 +75,7 @@ mat-drawer-content {
   background-color: #000088;
   opacity: 0.9;
   box-shadow: rgba(0,0,0,0.2);
-   transition: 0.3s;
+  transition: 0.3s;
 }
 .sss:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
