@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LoginDialog} from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import {  MatAutocompleteModule,
           MatBadgeModule,
           MatBottomSheetModule,
@@ -97,10 +98,13 @@ import { HttpClientModule } from '@angular/common/http';
           MatTreeModule,
           FormsModule,
           HttpClientModule,
+          MatFormFieldModule,
 
        ],
-  entryComponents: [LoginDialog],
+   entryComponents: [LoginDialog],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

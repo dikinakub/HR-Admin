@@ -1,110 +1,153 @@
 <!-- Start Header From **********************************************************************************************************-->
-<div class="sidenav">
-  <!--  พนักงาน(Employee) --------------------------------------------------------------------------------->
-  <div class="stylebutom">
-    <mat-accordion>
-      <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>  <!--  เห็นเฉพาะ HR -->
-          <mat-label class="dd">
-            Employee
-          </mat-label>
-        </mat-expansion-panel-header>
-        <hr/>
-        <a routerLink="EmployeeAdd" (click)="openemployee_add()">New Employee</a>
-        <a routerLink="Employee">Employee Master</a>
-      </mat-expansion-panel>
-
-      <!--  การลา(leave) --------------------------------------------------------------------------------->
-
-      <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-label class="dd">
-            Attendance
-          </mat-label>
-        </mat-expansion-panel-header>
-        <hr/>
-        <a routerLink="LeaveMain">Attendance</a> <!-- เห็นทุกคน ยกเว้น HR -->
-        <a routerLink="LeaveShow">Data Attendance</a>  <!-- เห็นทุกคน -->
-        <a routerLink="LeaveShowHR">Data Attendance For HR</a>   <!-- เห็นเฉพาะ HR -->
-        <a routerLink="LeaveApproveMan">Approve By MANAGER</a>   <!-- เห็นเฉพาะ MANAGER -->
-        <a routerLink="LeaveApproveSup">Approve By SUPERVISOR</a>   <!-- เห็นเฉพาะ SUPERVISOR -->
-      </mat-expansion-panel>
-
-      <!--  ขอล่วงเวลา(OT) --------------------------------------------------------------------------------->
-
-      <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-label class="dd">
-            OverTime
-          </mat-label>
-        </mat-expansion-panel-header>
-        <hr/>
-        <a routerLink="OverTime">OverTime</a>
-        <a routerLink="OverTimeShow">Data OverTime</a>
-        <a routerLink="OverTimeApprove">Approve</a>
-      </mat-expansion-panel>
-
-      <!--  อบรม (Training) --------------------------------------------------------------------------------->
-
-      <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-label class="dd">
-            Training
-          </mat-label>
-        </mat-expansion-panel-header>
-        <hr/>
-        <a routerLink="TrainAdd">Training</a>
-        <a routerLink="TrainShow">Data Training</a>
-      </mat-expansion-panel>
-    </mat-accordion>
-    <button mat-raised-button color="primary" *ngIf="" routerLink="login" style="margin-right:10px ;color :#ffff">Login </button>
-    <button mat-raised-button color="primary" *ngIf="" routerLink="Logout" (click)="onLogout()" style="margin-right:10px ;color :#ffff">Logout </button>
-  </div>
-</div>
-
-
-<!-- End Header From **********************************************************************************************************-->
-
-
 <body class="bgimg">
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="!side">
+    <!--  พนักงาน(Employee) --------------------------------------------------------------------------------->
+    <div class="sidenav">
+      <mat-accordion>
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>  <!--  เห็นเฉพาะ HR -->
+            <mat-label class="dd">
+              Employee
+            </mat-label>
+          </mat-expansion-panel-header>
+          <hr/>
+          <a routerLink="EmployeeAdd" (click)="openemployee_add()">New Employee</a>
+          <a routerLink="Employee">Employee Master</a>
+        </mat-expansion-panel>
 
-<div class="card">
-  <h1 align="center">Welcome to human resourcse system</h1>
-  <p align="center">
-    <mat-form-field appearance="outline" style="width:30%;">
-      <mat-label>Enter your username</mat-label>
-      <input matInput placeholder="username" [(ngModel)]="user">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="outline" style="width:30%;" >
-      <mat-label>Enter your password</mat-label>
-      <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" [(ngModel)]="password">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <!--  การลา(leave) --------------------------------------------------------------------------------->
+
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-label class="dd">
+              Attendance
+            </mat-label>
+          </mat-expansion-panel-header>
+          <hr/>
+          <a routerLink="LeaveMain">Attendance</a> <!-- เห็นทุกคน ยกเว้น HR -->
+          <a routerLink="LeaveShow">Data Attendance</a>  <!-- เห็นทุกคน -->
+          <a routerLink="LeaveShowHR">Data Attendance For HR</a>   <!-- เห็นเฉพาะ HR -->
+          <a routerLink="LeaveApproveMan">Approve By MANAGER</a>   <!-- เห็นเฉพาะ MANAGER -->
+          <a routerLink="LeaveApproveSup">Approve By SUPERVISOR</a>   <!-- เห็นเฉพาะ SUPERVISOR -->
+        </mat-expansion-panel>
+
+        <!--  ขอล่วงเวลา(OT) --------------------------------------------------------------------------------->
+
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-label class="dd">
+              OverTime
+            </mat-label>
+          </mat-expansion-panel-header>
+          <hr/>
+          <a routerLink="OverTime">OverTime</a>
+          <a routerLink="OverTimeShow">Data OverTime</a>
+          <a routerLink="OverTimeApprove">Approve</a>
+        </mat-expansion-panel>
+
+        <!--  อบรม (Training) --------------------------------------------------------------------------------->
+
+        <mat-expansion-panel
+          (opened)="panelOpenState = true"
+          (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-label class="dd">
+              Training
+            </mat-label>
+          </mat-expansion-panel-header>
+          <hr/>
+          <a routerLink="TrainAdd">Training</a>
+          <a routerLink="TrainShow">Data Training</a>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <button mat-raised-button color="primary" *ngIf="" routerLink="login" style="margin-right:10px ;color :#ffff">Login </button>
+      <button mat-raised-button color="primary" *ngIf="" routerLink="Logout" (click)="onLogout()" style="margin-right:10px ;color :#ffff">Logout </button>
+    </div> <!-- ข้างๆๆๆๆ -->
+    <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <div class="card">
+      <button type="button"mat-button (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">menu
+        </mat-icon><font class="icon">Menu</font>
       </button>
-    </mat-form-field>
-  </p>
-    <div class="example-button-row" align="center">
-      <button mat-raised-button (click) = "SubmitData()" color="primary"  style="margin-left: 0px ; width: 220px ; font-size: 20px"  >Login</button>
+      <h1 align="center">Welcome to human resourcse system</h1>
+     <!-- <p align="center">
+        <mat-form-field appearance="outline" style="width:30%;">
+          <mat-label>Enter your username</mat-label>
+          <input matInput placeholder="username" [(ngModel)]="user">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+        <br>
+        <mat-form-field appearance="outline" style="width:30%;" >
+          <mat-label>Enter your password</mat-label>
+          <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" [(ngModel)]="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <div class="example-button-row" align="center">
+        <button mat-raised-button (click) = "SubmitData()" color="primary"  style="margin-left: 0px ; width: 220px ; font-size: 20px"  >Login</button>
+      </div> -->
+
+      <mat-horizontal-stepper>
+        <mat-step>
+          <ng-template matStepLabel><b>ข้อมูลส่วนตัว</b></ng-template>
+          <p align="center">
+
+            <br><button mat-raised-button matStepperNext color="primary">Next</button>
+          </p>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel><b> Name</b></ng-template>
+          <p align="center">
+
+            <br><button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+          </p>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel><b>First Name</b></ng-template>
+          <p align="center">
+            <button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+          </p>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel><b>Save</b></ng-template>
+
+
+          <p align="center">
+            <br> <button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
+          </p>
+
+        </mat-step>
+
+      </mat-horizontal-stepper>
+
     </div>
+  </div>
+</mat-drawer-container>
 
-
-
-
-
-
-
-</div>
 </body>
+
+
+
+
+
+
 
 
 

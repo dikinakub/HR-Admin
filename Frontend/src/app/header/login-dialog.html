@@ -10,6 +10,9 @@
       margin-right: 8px;
        width: 50%;
      }
+     .icon{
+          color:#00dd00;
+        }
   </style>
 </head>
 
@@ -18,13 +21,13 @@
 <mat-form-field appearance="outline" style="width:100%;">
   <mat-label>Enter your username</mat-label>
   <input matInput placeholder="username">
-  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  <mat-icon class="icon" matSuffix>sentiment_very_satisfied</mat-icon>
 </mat-form-field>
 <mat-form-field appearance="outline" style="width:100%;">
   <mat-label>Enter your password</mat-label>
   <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" >
   <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-    <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+    <mat-icon class="icon" >{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
   </button>
 </mat-form-field>
 

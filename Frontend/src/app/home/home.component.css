@@ -7,10 +7,28 @@
 .mat-Badge{
 }
 .example-container {
-  top : 0;
-  width: auto;
-  height: auto;
-  margin: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+   top: 100;
+   left: 0px;
+    overflow-x: hidden;
+    padding-top: 20px;
+    color: #000000;
+    opacity: 0.9;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+ /* align-items: center;
+  justify-content: center;*/
+}
+
+.example-sidenav {
+  padding: 3px;
+  background-color: #000033;
 }
 mat-drawer-content {
   padding: 100px;
@@ -20,20 +38,19 @@ mat-drawer-content {
 
 .sidenav {
   height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 100;
+  width: 100%;
+  top: 0px;
   left: 0px;
-  background-color: #000033;
+  background-color: #000055;
   overflow-x: hidden;
   padding-top: 0px;
   color: #00ff00;
-  opacity: 0.75;
+  opacity: 0.95;
   transition: 0.3s;
 }
+
 .sidenav:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+/*  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);*/
 }
 .sidenav a {
   padding: 2px 2px 2px 2px;
@@ -45,7 +62,7 @@ mat-drawer-content {
 .stylebutom{
   width:98%;
   margin-left: 1%;
-    padding-top: 20px;
+   padding-top: 20px;
 }
 
 .sidenav a:hover {
@@ -142,13 +159,13 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.);
   transition: 0.3s;
   width: 980px;
-  height: 480px;
-   margin-top: 30px;
+  height: 520px;
+   margin-top: 0;
     margin-right: auto;
-    margin-left: 23%;
-    margin-bottom: 0px;
+    margin-left: auto;
+    margin-bottom: auto;
     background-color: #ffffff;
-    opacity: 0.9;
+
 }
 
 .card:hover {
@@ -159,3 +176,21 @@ img {
   padding: 2px 16px;
 }
 
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+.basic-container {
+  padding: 30px;
+}
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+.icon{
+  color:#005500;
+
+}
