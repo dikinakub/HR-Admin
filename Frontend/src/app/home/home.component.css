@@ -158,14 +158,23 @@ img {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.);
   transition: 0.3s;
-  width: 980px;
-  height: 520px;
+  width: 75%;
+  height: 80%;
    margin-top: 0;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: auto;
     background-color: #ffffff;
 
+}
+.card2 {
+  width: 35%;
+  height: 35%;
+   margin-top: 0;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    background-color: white;
 }
 
 .card:hover {

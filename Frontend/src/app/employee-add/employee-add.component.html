@@ -80,11 +80,10 @@
         </mat-icon><font class="icon">Menu</font>
       </button>
 
-     <!-- <font color="#0000ff"><h3 align="center">Employee Resume</h3></font> -->
       <mat-horizontal-stepper>
+        <!------------------------------Start ข้อมูลส่วนตัว ------------------------------------------------------------------------------>
         <mat-step>
-          <ng-template matStepLabel><b>ข้อมูลส่วนตัว</b></ng-template>
-
+          <ng-template matStepLabel><b>Personal information</b></ng-template>
           <div class="card2">
             <mat-form-field hintLabel="Max 6 Numbers" style="width:100%">
               <input matInput #input maxlength="6" placeholder="รหัสพนักงาน" required>
@@ -109,6 +108,19 @@
                 <mat-option value="หญิง">หญิง</mat-option>
               </mat-select>
             </mat-form-field>
+            <!--      Marital status  -->
+            <mat-form-field  class="formcenter"  style="width :100%">
+              <mat-select placeholder="สถานะภาพ" required>
+                <mat-option value="โสด" >โสด</mat-option>
+                <mat-option value="ไม่โสด" >ไม่โสด</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!--  BirthDate  -->
+            <mat-form-field style="width :100%">
+              <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด" required>
+              <mat-datepicker-toggle matSuffix [for]="BirthDate" ></mat-datepicker-toggle>
+              <mat-datepicker #BirthDate></mat-datepicker>
+            </mat-form-field>
           </div>
           <div class="buttonStyle">
           <button   mat-button matStepperPrevious>
@@ -119,67 +131,36 @@
           </button>
           </div>
         </mat-step>
-
+        <!------------------------------End ข้อมูลส่วนตัว ------------------------------------------------------------------------------>
+        <!------------------------------Start ที่อยู่ ------------------------------------------------------------------------------>
         <mat-step>
-          <ng-template matStepLabel><b>ข้อมูลส่วนตัว2</b></ng-template>
-          <div class="card2">
-
-            <!--      Marital status  -->
-            <mat-form-field  class="formcenter"  style="width :100%">
-               <mat-select placeholder="สถานะภาพ" required>
-                  <mat-option value="โสด" >โสด</mat-option>
-                 <mat-option value="ไม่โสด" >ไม่โสด</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <!--  BirthDate  -->
-          <mat-form-field style="width :100%">
-            <input matInput [matDatepicker]="BirthDate" hintLabel="" placeholder="วัน/เดือน/ปี เกิด" required>
-            <mat-datepicker-toggle matSuffix [for]="BirthDate" ></mat-datepicker-toggle>
-            <mat-datepicker #BirthDate></mat-datepicker>
-          </mat-form-field>
-            <!--  call contact 1-->
-          <mat-form-field style="width :100%" >
-            <input matInput #input maxlength="10" placeholder="เบอร์โทร" maxlength="10" required>
-            <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-          </mat-form-field>
-            <!--  Email -->
-            <mat-form-field style="width :100%">
-                <input matInput placeholder="Enter your email" required>
-                <mat-error ></mat-error>
-            </mat-form-field>
-
-          </div>
-          <div class="buttonStyle">
-            <button   mat-button matStepperPrevious>
-              <mat-icon  class="icon">skip_previous</mat-icon>
-            </button>
-            <button  mat-button matStepperNext>
-              <mat-icon class="icon">skip_next</mat-icon>
-            </button>
-          </div>
-            </mat-step>
-            <mat-step>
-              <ng-template matStepLabel><b>ที่อยู่</b></ng-template>
-              <div class="buttonStyle">
-                <button   mat-button matStepperPrevious>
-                  <mat-icon  class="icon">skip_previous</mat-icon>
-                </button>
-                <button  mat-button matStepperNext>
-                  <mat-icon class="icon">skip_next</mat-icon>
-                </button>
-              </div>
-
-            </mat-step>
-            <mat-step>
-              <ng-template matStepLabel><b>Save</b></ng-template>
+              <ng-template matStepLabel><b>Addresses</b></ng-template>
               <div class="card2">
-              <!--      personID-->
-              <mat-form-field style="width :100%" >
-                <input matInput #input placeholder="รหัสประจำตัวประชาชน หรือ หมายเลขหนังสือเดินทาง" maxlength="13" required>
-                <mat-hint align="end">{{input.value?.length || 0}}/13</mat-hint>
-              </mat-form-field>
+                <!--      personID-->
+                <mat-form-field style="width :100%" >
+                  <input matInput #input placeholder="รหัสประจำตัวประชาชน หรือ หมายเลขหนังสือเดินทาง" maxlength="13" required>
+                  <mat-hint align="end">{{input.value?.length || 0}}/13</mat-hint>
+                </mat-form-field>
+                <!--  call contact 1-->
+                <mat-form-field style="width :100%" >
+                  <input matInput #input maxlength="10" placeholder="เบอร์โทร" maxlength="10" required>
+                  <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                </mat-form-field>
+                <!--  Email -->
+                <mat-form-field style="width :100%">
+                  <input matInput placeholder="Enter your email" required>
+                  <mat-error ></mat-error>
+                </mat-form-field>
+                <!--      Home No.  -->
+                <mat-form-field hintLabel="ที่อยู่ตามบัตรประจำตัวประชาชน" style="width :100% ;">
+                <textarea matInput placeholder="ที่อยู่"  autocomplete="off" required></textarea>
+                </mat-form-field>
+                <!--      Home Now Address.  -->
+                <mat-form-field hintLabel="ที่อยู่ปัจจุบัน" style="width :100%">
+                  <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้"  ></textarea>
+                </mat-form-field>
 
-
+              </div>
               <div class="buttonStyle">
                 <button   mat-button matStepperPrevious>
                   <mat-icon  class="icon">skip_previous</mat-icon>
@@ -188,24 +169,159 @@
                   <mat-icon class="icon">skip_next</mat-icon>
                 </button>
               </div>
-              </div>
             </mat-step>
-            <mat-step>
+        <!------------------------------End ที่อยู่ ------------------------------------------------------------------------------>
+        <!------------------------------Start Job Details ------------------------------------------------------------------------------>
+        <mat-step>
+              <ng-template matStepLabel><b>Job details and bank</b></ng-template>
+              <div class="card2">
+                <!--StartWork-->
+                <mat-form-field style="width :100%">
+                  <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน" >
+                  <mat-datepicker-toggle matSuffix [for]="startwork" ></mat-datepicker-toggle>
+                  <mat-datepicker #startwork></mat-datepicker>
+                </mat-form-field>
+                <!------ ตำแหน่ง ------>
+                <mat-form-field class="formcenter" hintLabel=""  style="width :100%" >
+                  <mat-select placeholder="ตำแหน่ง" required>
+                    <mat-option value="Forklift pgp,smtl" > Forklift pgp,smtl</mat-option>
+                    <mat-option value="Account Executive & CS" >Account Executive & CS</mat-option>
+                    <mat-option value="Account Executive Admin" > Account Executive Admin</mat-option>
+                    <mat-option value="ANALYST" > ANALYST</mat-option>
+                    <mat-option value="ANALYST TSP" >ANALYST TSP</mat-option>
+                    <mat-option value="Ast. IMC Manager L.2" >Ast. IMC Manager L.2</mat-option>
+                    <mat-option value="Ast. Opt. Manager L.1" > Ast. Opt. Manager L.1</mat-option>
+                    <mat-option value="Business Development" >Business Development</mat-option>
+                    <mat-option value="Checker" >Checker</mat-option>
+                    <mat-option value="Checker Forklift pgp,smtl" >Checker Forklift pgp,smtl</mat-option>
+                    <mat-option value="Daily Checker" >Daily Checker</mat-option>
+                    <mat-option value="Daily Checker Amazon" >Daily Checker Amazon</mat-option>
+                    <mat-option value="Daily Checker TSP" >Daily Checker TSP</mat-option>
+                    <mat-option value="Daily FL Driver" >Daily FL Driver</mat-option>
+                    <mat-option value="Daily Forklift Driver" >Daily Forklift Driver</mat-option>
+                    <mat-option value="Daily Picker" >Daily Picker</mat-option>
+                    <mat-option value="Daily Picker  TSP" > Daily Picker  TSP</mat-option>
+                    <mat-option value="Daily Picker Amazon" >Daily Picker Amazon</mat-option>
+                    <mat-option value="Daily Picker Chester" >Daily Picker Chester</mat-option>
+                    <mat-option value="Daily Picker PTT" >Daily Picker PTT</mat-option>
+                    <mat-option value="Daily Picker Receiving" > Daily Picker Receiving</mat-option>
+                    <mat-option value="Daily Picker STL" >Daily Picker STL</mat-option>
+                    <mat-option value="Daily Picker TKNR" >Daily Picker TKNR</mat-option>
+                    <mat-option value="Daily Picker Vcan" >Daily Picker Vcan</mat-option>
+                    <mat-option value="Daily Receiving" > Daily Receiving</mat-option>
+                    <mat-option value="Daily TSP Checker" > Daily TSP Checker</mat-option>
+                    <mat-option value="Daily คนพิการ" >Daily คนพิการ</mat-option>
+                    <mat-option value="Driver" >Driver</mat-option>
+                    <mat-option value="HR and Admin Officer">HR and Admin Officer</mat-option>
+                    <mat-option value="Inventory Admin">Inventory Admin</mat-option>
+                    <mat-option value="IT Programmer"> IT Programmer</mat-option>
+                    <mat-option value="Leader" >Leader</mat-option>
+                    <mat-option value="Leader Transport" >Leader Transport</mat-option>
+                    <mat-option value="Leader TSP Operation" > Leader TSP Operation</mat-option>
+                    <mat-option value="Manager" >Manager</mat-option>
+                    <mat-option value="Manager Transport" >Manager Transport</mat-option>
+                    <mat-option value="Monthly  Checker" >Monthly  Checker</mat-option>
+                    <mat-option value="Monthly Checker" >Monthly Checker</mat-option>
+                    <mat-option value="Monthly Driver" >Monthly Driver</mat-option>
+                    <mat-option value="Monthly Forklift Drivers" >Monthly Forklift Drivers</mat-option>
+                    <mat-option value="Monthly IT" >Monthly IT</mat-option>
+                    <mat-option value="Monthly IT Suppervisor" >Monthly IT Suppervisor</mat-option>
+                    <mat-option value="Monthly Receiving Checker" >Monthly Receiving Checker</mat-option>
+                    <mat-option value="Monthly TSP Admin" >Monthly TSP Admin</mat-option>
+                    <mat-option value="MonthlyForklift Driver,Checker PZ Loscam" >MonthlyForklift Driver,Checker PZ Loscam</mat-option>
+                    <mat-option value="Supervisor" >Supervisor</mat-option>
+                    <mat-option value="Supervisor Operation Level 2" >Supervisor Operation Level 2</mat-option>
+                    <mat-option value="Supervisor Transport" >Supervisor Transport</mat-option>
+                    <mat-option value="เจ้าหน้าที่ความปลอดภัยในการทำงานระดับวิชาชีพ" >เจ้าหน้าที่ความปลอดภัยในการทำงานระดับวิชาชีพ</mat-option>
+                    <mat-option value="แม่บ้าน" >แม่บ้าน</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- แผนก -->
+                <mat-form-field class="formcenter" hintLabel="" style="width :20%" style="width :100%" >
+                  <mat-select placeholder="แผนก" required>
+                    <mat-option value="IT" >IT</mat-option>
+                    <mat-option value="AE" >AE</mat-option>
+                    <mat-option value="IMC" >IMC</mat-option>
+                    <mat-option value="Inventory" >Inventory</mat-option>
+                    <mat-option value="OPT" >OPT</mat-option>
+                    <mat-option value="TSP" >TSP</mat-option>
+                    <mat-option value="ANALYST" >ANALYST</mat-option>
+                    <mat-option value="HR" >HR</mat-option>
+                    <mat-option value="Safety" >Safety</mat-option>
+                    <mat-option value="BD" >BD</mat-option>
+                    <mat-option value="แม่บ้าน" >แม่บ้าน</mat-option>
+                    <mat-option value="Trainee" >Trainee</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- ประเภทการทำงาน -->
+                <mat-form-field class="formcenter" hintLabel="" style="width :100%">
+                  <mat-select placeholder="ประเภทการทำงาน" required>
+                    <mat-option value="นักศึกษาฝึกงาน" >นักศึกษาฝึกงาน</mat-option>
+                    <mat-option value="รายเดือน" >รายเดือน</mat-option>
+                    <mat-option value="รายวัน" >รายวัน</mat-option>
+                    <mat-option value="รายวันชั่วคราว" >รายวันชั่วคราว</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- วุฒิการศึกษา -->
+                <mat-form-field hintLabel="" style="width :100%">
+                  <mat-select placeholder="วุฒิการศึกษา" required>
+                    <mat-option value="ม.3" >ม.3</mat-option>
+                    <mat-option value="ม.6" >ม.6</mat-option>
+                    <mat-option value="ป.ตรี" >ป.ตรี</mat-option>
+                    <mat-option value="ป.โท" >ป.โท</mat-option>
+                    <mat-option value="ป.เอก" >ป.เอก</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!--      Bank -->
+                <mat-form-field class="formcenter" hintLabel="" style="width :100%">
+                  <mat-select placeholder="ธนาคาร" required >
+                    <mat-option value="ธนาคารกรุงศรีอยุธยา">ธนาคารกรุงศรีอยุธยา จำกัด(มหาชน)</mat-option>
+                    <mat-option value="ธนาคารไทยพาณิชย์" >ธนาคารไทยพาณิชย์ จำกัด(มหาชน)</mat-option>
+                    <mat-option value="ธนาคารทหารไทย" >ธนาคารทหารไทย จำกัด(มหาชน)</mat-option>
+                    <mat-option value="ธนาคารกรุงเทพ" > ธนาคารกรุงเทพ จำกัด(มหาชน)</mat-option>
+                    <mat-option value="ธนาคารออมสิน" >ธนาคารออมสิน</mat-option>
+                    <mat-option value="ธนาคารกสิกรไทย" >ธนาคารกสิกรไทย จำกัด(มหาชน)</mat-option>
+                    <mat-option value="ธนาคารกรุงไทย" >ธนาคารกรุงไทย จำกัด(มหาชน)</mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!--        AccountNo.-->
+                <mat-form-field hintLabel="Max 10 Numbers" style="width:100%">
+                  <input matInput #input maxlength="10" placeholder="เลขบัญชี" required>
+                  <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                </mat-form-field>
+
+                </div>
+                <div class="buttonStyle">
+                  <button   mat-button matStepperPrevious>
+                    <mat-icon  class="icon">skip_previous</mat-icon>
+                  </button>
+                  <button  mat-button matStepperNext>
+                    <mat-icon class="icon">skip_next</mat-icon>
+                  </button>
+                </div>
+              </mat-step>
+        <!------------------------------End Job Details ------------------------------------------------------------------------------>
+        <!------------------------------Start Save ------------------------------------------------------------------------------>
+        <mat-step>
             <ng-template matStepLabel><b>Save</b></ng-template>
 
-
-              <div class="buttonStyle">
-                <button  mat-button matStepperPrevious>
-                  <mat-icon  class="icon">skip_previous</mat-icon>
-                </button>
-                <button  mat-button matStepperNext>
-                  <mat-icon class="icon">skip_next</mat-icon>
-                </button>
-              </div>
-
+                <div  align="center" style="opacity: 0.99;">
+                 <!-- <button mat-raised-button color="primary">Primary</button> -->
+                  <font color="red"><p>*โปรดตรวจสอบข้อมูลอีกรอบก่อนกดบันทึก*</p></font>
+                  <button mat-raised-button color="accent"
+                          style="width:35%;
+                          height:50px;
+                          font-size:18px;
+                          margin-top: 0;
+                          margin-right: auto;
+                          margin-left: auto;
+                          margin-bottom: auto;">
+                    <b>บันทึกข้อมูลทั้งหมด</b>
+                  </button>
+                </div>
             </mat-step>
-
-          </mat-horizontal-stepper>
+        <!------------------------------End Save ------------------------------------------------------------------------------>
+      </mat-horizontal-stepper>
 
         </div>
       </div>
