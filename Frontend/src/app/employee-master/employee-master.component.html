@@ -72,70 +72,20 @@
     </div> <!-- ข้างๆๆๆๆ -->
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
   </mat-drawer>
-
+  <!-- End Header From **********************************************************************************************************-->
   <div class="example-sidenav-content">
     <div class="card">
+      <!-------- Menu --------->
       <button type="button"mat-button (click)="drawer.toggle()">
         <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">menu
         </mat-icon><font class="icon">Menu</font>
       </button>
-      <h1 align="center">Welcome to human resourcse system</h1>
-      <p align="center">
-        <mat-form-field appearance="outline" style="width:30%;">
-          <mat-label>Enter your username</mat-label>
-          <input matInput placeholder="username" [(ngModel)]="user">
-          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-        </mat-form-field>
-        <br>
-        <mat-form-field appearance="outline" style="width:30%;" >
-          <mat-label>Enter your password</mat-label>
-          <input matInput placeholder="password" [type]="hide ? 'text' : 'password'" [(ngModel)]="password">
-          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-          </button>
-        </mat-form-field>
-      </p>
-      <div class="example-button-row" align="center">
-        <button mat-raised-button (click) = "SubmitData()" color="primary"  style="margin-left: 0px ; width: 220px ; font-size: 20px"  >Login</button>
-      </div>
-
-      <mat-horizontal-stepper>
-        <mat-step>
-          <ng-template matStepLabel><b>ข้อมูลส่วนตัว</b></ng-template>
-          <p align="center">
-
-            <br><button mat-raised-button matStepperNext color="primary">Next</button>
-          </p>
-
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel><b> Name</b></ng-template>
-          <p align="center">
-
-            <br><button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
-            <button mat-raised-button matStepperNext color="primary">Next</button>
-          </p>
-
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel><b>First Name</b></ng-template>
-          <p align="center">
-            <button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
-            <button mat-raised-button matStepperNext color="primary">Next</button>
-          </p>
-
-        </mat-step>
-        <mat-step>
-          <ng-template matStepLabel><b>Save</b></ng-template>
+      <!-------- Menu --------->
 
 
-          <p align="center">
-            <br> <button mat-raised-button matStepperPrevious color="primary">Back</button>&nbsp;&nbsp;&nbsp;
-          </p>
 
-        </mat-step>
 
-      </mat-horizontal-stepper>
+
 
     </div>
   </div>

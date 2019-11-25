@@ -47,6 +47,7 @@ import {  MatAutocompleteModule,
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeMasterComponent } from './employee-master/employee-master.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginDialog,
     EmployeeAddComponent,
     HomeComponent,
+    EmployeeMasterComponent,
 
   ],
       imports: [

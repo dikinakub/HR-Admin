@@ -8,15 +8,16 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { HttpClient} from '@angular/common/http';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-employee-master',
+  templateUrl: './employee-master.component.html',
+  styleUrls: ['./employee-master.component.css']
 })
-export class HomeComponent implements OnInit {
+export class EmployeeMasterComponent implements OnInit {
 
 data:any={}
 user : null ;
 password : null;
+prefixnameSelect : '';
 
 public API = '//localhost:8080/ILS_HR';   //for test
 
@@ -34,38 +35,13 @@ constructor(private router:Router,
     }
 
     openemployee_add(){
-       this.router.navigate(['employee-add']);
+       this.router.navigate(['employee-add',{first:this.data.first}]);
        console.log(this.data);
     }
 
     openemployee_master(){
-       this.router.navigate(['employee-master']);
+       this.router.navigate(['employee-master',{first:this.data.first}]);
        console.log(this.data);
     }
 
-
-    SubmitData(){
-      if(this.user == null){
-        alert("Please Check field To username");
-      }
-      else if(this.password == null){
-        alert("Please Check field To password");
-      }
-    else{
-     this.http.post(this.API + '/'+this.user +'/' + this.password ,{})
-                .subscribe(
-                               data => {
-                                   console.log('PUT Request is successful', data);
-                                   alert("บันทึกสำเร็จ");
-                               },
-                               error => {
-                                   console.log('Error', error);
-                               }
-                              );
-      }
-      }
-
-   }
-
-
-
+}

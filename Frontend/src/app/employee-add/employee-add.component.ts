@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Inject} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+//import { ServiceService } from '../Service/service.service';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-employee-add',
@@ -6,10 +13,90 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-add.component.css']
 })
 export class EmployeeAddComponent implements OnInit {
-  prefixnameSelect : '';
-  constructor() { }
+data:any={}
 
-  ngOnInit() {
-  }
+employeeMasterCustomerCode : null;
+empMasterFirstName : null;
+empMasterLastName : null;
+empMasterNickName : null;
+genderSelect : String = '' ;
+MaritalStatusSelect : String = '' ;
+BirthDateSelect : String = '' ;
+
+personID : null;
+callContact : null;
+emails : null;
+homeNo : null;
+homeNowAddress : null;
+
+startWorks : null;
+positionSelect : '';
+departmentSelect : '';
+typeNameSelect : '';
+educationSelect : '';
+bankSelect : '';
+bankNumbers : null;
+
+
+public API = '//localhost:8080/ILS_HR';   //for test
+
+constructor(private router:Router,
+            private route:ActivatedRoute ,
+            public dialog: MatDialog,
+             private http: HttpClient,
+           ) { }
+
+    ngOnInit() {
+        this.route.params.subscribe(prams=>{
+                   this.data = prams
+                   console.log(prams)
+                 });
+    }
+
+    openemployee_add(){
+       this.router.navigate(['employee-add',{first:this.data.first}]);
+       console.log(this.data);
+    }
+
+    openemployee_master(){
+       this.router.navigate(['employee-master',{first:this.data.first}]);
+       console.log(this.data);
+    }
+
+    SubmitData(){
+     if(this.employeeMasterCustomerCode == null || this.empMasterFirstName == null
+      || this.empMasterLastName == null || this.empMasterNickName == null
+       || this.genderSelect == null || this.MaritalStatusSelect == null
+        || this.BirthDateSelect == null || this.personID == null
+         || this.callContact == null || this.emails == null
+          || this.homeNo == null || this.homeNowAddress == null
+           || this.startWorks == null || this.positionSelect == null
+            || this.departmentSelect == null || this.typeNameSelect == null
+             || this.educationSelect == null || this.bankSelect == null
+              || this.bankNumbers == null){
+                            alert("กรุณากรอกข้อมูลให้ครบ");
+      }
+      else{
+     this.http.post(this.API + '/'+this.employeeMasterCustomerCode + '/' + this.empMasterFirstName +'/' + this.empMasterLastName
+     +'/' + this.empMasterNickName +'/' + this.genderSelect +'/' + this.MaritalStatusSelect +'/' + this.BirthDateSelect
+     +'/' + this.personID +'/' + this.callContact +'/' + this.emails +'/' + this.homeNo +'/' + this.homeNowAddress
+     +'/' + this.startWorks +'/' + this.positionSelect +'/' + this.departmentSelect +'/' + this.typeNameSelect
+     +'/' + this.educationSelect +'/' + this.bankSelect +'/' + this.bankNumbers,{})
+                .subscribe(
+                               data => {
+                                   console.log('PUT Request is successful', data);
+                                   alert("บันทึกสำเร็จ");
+                               },
+                               error => {
+                                   console.log('Error', error);
+                               }
+                 );
+
+        }
+      }
+
+
+
+
 
 }
