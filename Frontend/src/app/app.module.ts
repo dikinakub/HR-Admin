@@ -48,6 +48,7 @@ import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeMasterComponent } from './employee-master/employee-master.component';
+import { CreateAccountComponent } from './create-account/create-account.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { EmployeeMasterComponent } from './employee-master/employee-master.compo
     EmployeeAddComponent,
     HomeComponent,
     EmployeeMasterComponent,
+    CreateAccountComponent,
 
   ],
       imports: [

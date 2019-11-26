@@ -26,11 +26,9 @@ export class HeaderComponent implements OnInit {
                    const dialogRef = this.dialog.open(LoginDialog, {
                      width: '330px'
                    });
+
         }
-      openemployee_add(){
-       this.router.navigate(['employee-add',{first:this.data.first}]);
-       console.log(this.data);
-    }
+
 
 
 }
@@ -46,7 +44,7 @@ export class LoginDialog {
     public dialogRef: MatDialogRef<LoginDialog>
     ) {}
 
-  onNoClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 

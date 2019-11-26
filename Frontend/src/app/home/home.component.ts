@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {Inject} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-//import { ServiceService } from '../Service/service.service';
+import { ServiceService } from '../service/service.service';
 import { HttpClient} from '@angular/common/http';
 
 @Component({

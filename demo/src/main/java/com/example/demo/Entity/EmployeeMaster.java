@@ -6,14 +6,12 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
 @Entity
-@NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Table(name = "EmployeeMaster")
@@ -46,7 +44,7 @@ public class EmployeeMaster {
     private String bankNumber;
     private String IsActive;
 
-
+    public  EmployeeMaster (){ }
     public Date getEmployeeMasterBirthDate() {
         return employeeMasterBirthDate;
     }
@@ -220,7 +218,6 @@ public class EmployeeMaster {
     public void setIsActive(String isActive) {
         IsActive = isActive;
     }
-
 
 
 

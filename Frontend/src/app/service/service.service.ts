@@ -13,13 +13,15 @@ export class ServiceService {
 
   constructor( private http: HttpClient ) { }
 
-  findDate(date : String) : Observable<any>{
-      return this.http.post(this.API+'/Report/'+date,{})
+  getemployee(): Observable<any>{
+      return this.http.get(this.API+'/employee',{})
+
   }
 
-  /*getUserPassword(id:String , password:String): Observable<any>{
+  getUserPassword(id: String , password : String): Observable<any>{
       return this.http.post(this.API+'/Users/'+id+/Password/+password,{})
-  }*/
+  }
+
 
 
 }
