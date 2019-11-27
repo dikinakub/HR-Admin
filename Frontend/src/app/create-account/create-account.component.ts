@@ -10,6 +10,7 @@ import { ServiceService } from '../service/service.service';
   templateUrl: './create-account.component.html',
   styleUrls: ['./create-account.component.css']
 })
+
 export class CreateAccountComponent implements OnInit {
 
   data:any={}

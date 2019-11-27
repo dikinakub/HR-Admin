@@ -14,8 +14,9 @@
             </mat-label>
           </mat-expansion-panel-header>
           <hr/>
-          <a routerLink="EmployeeAdd" (click)="openemployee_add()">New Employee</a>
-          <a routerLink="Employee" (click)="openemployee_master()">Employee Master</a>
+          <a routerLink="/employee-master">Employee Master</a>
+          <a routerLink="/employee-add">New Employee</a>
+          <a routerLink="/create-account" >Create new account</a>
         </mat-expansion-panel>
 
         <!--  การลา(leave) --------------------------------------------------------------------------------->
@@ -149,7 +150,7 @@
                 </mat-form-field>
                 <!--  Email -->
                 <mat-form-field style="width :100%">
-                  <input matInput placeholder="Enter your email"  [(ngModel)]="emails">
+                  <input matInput placeholder="Enter your email" required [(ngModel)]="emails">
                   <mat-error ></mat-error>
                 </mat-form-field>
                 <!--      Home No.  -->
@@ -158,7 +159,7 @@
                 </mat-form-field>
                 <!--      Home Now Address.  -->
                 <mat-form-field hintLabel="ที่อยู่ปัจจุบัน" style="width :100%">
-                  <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้"  [(ngModel)]="homeNowAddress" ></textarea>
+                  <textarea matInput placeholder="ที่อยู่ที่ติดต่อได้" required [(ngModel)]="homeNowAddress" ></textarea>
                 </mat-form-field>
 
               </div>
@@ -178,7 +179,7 @@
               <div class="card2">
                 <!--StartWork-->
                 <mat-form-field style="width :100%">
-                  <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน" [(ngModel)]="startWorks">
+                  <input matInput [matDatepicker]="startwork" hintLabel="" placeholder="วันเริ่มงาน" required [(ngModel)]="startWorks">
                   <mat-datepicker-toggle matSuffix [for]="startwork" ></mat-datepicker-toggle>
                   <mat-datepicker #startwork></mat-datepicker>
                 </mat-form-field>
@@ -319,8 +320,7 @@
                           margin-bottom: auto;"
                           (click) = "SubmitData()">
                     <b>บันทึกข้อมูลทั้งหมด</b>
-                  </button> <br>
-                  <button mat-button color="warn"  class="colors" routerLink="/create-account" (click)="closeDialog()" style="width:35%;">Create new account</button>
+                  </button>
                 </div>
             </mat-step>
         <!------------------------------End Save ------------------------------------------------------------------------------>

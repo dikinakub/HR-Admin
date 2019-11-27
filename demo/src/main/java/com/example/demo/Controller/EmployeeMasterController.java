@@ -19,10 +19,11 @@ public class EmployeeMasterController {
     @Autowired private EmployeeMasterRepository employeeMasterRepository;
 
 
-    @GetMapping(path = "ILS_HR/employee", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "ILS_HR/employee")
     public Collection<EmployeeMaster> employeeMaster() {
         return employeeMasterRepository.findAll().stream().collect(Collectors.toList());
     }
+
 
     @PostMapping("/ILS_HR/{employeeMasterCustomerCode}/{employeeMasterFirstName}/{employeeMasterLastName}/{employeeMasterNickName}" +
             "/{employeeMasterGender}/{maritalStatus}/{employeeMasterBirthDate}/{employeeMasterPersonID}/{employeeMasterTel1}/{empEmail}" +

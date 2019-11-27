@@ -158,8 +158,8 @@ img {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.);
   transition: 0.3s;
-  width: 75%;
-  height: 90%;
+  width: 90%;
+  height: 99%;
    margin-top: 0;
     margin-right: auto;
     margin-left: auto;
@@ -203,3 +203,27 @@ body {
   color:#005500;
 
 }
+
+
+
+/* Structure */
+table {
+  width: 100%;
+  font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+table {
+  width: 100%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+

@@ -14,8 +14,9 @@
             </mat-label>
           </mat-expansion-panel-header>
           <hr/>
-          <a routerLink="EmployeeAdd" (click)="openemployee_add()">New Employee</a>
-          <a routerLink="Employee" (click)="openemployee_master()">Employee Master</a>
+          <a routerLink="/employee-master">Employee Master</a>
+          <a routerLink="/employee-add">New Employee</a>
+          <a routerLink="/create-account" >Create new account</a>
         </mat-expansion-panel>
 
         <!--  การลา(leave) --------------------------------------------------------------------------------->
@@ -72,9 +73,13 @@
     </div> <!-- ข้างๆๆๆๆ -->
     <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
   </mat-drawer>
-
+  <!-- End Header From **********************************************************************************************************-->
   <div class="example-sidenav-content">
     <div class="card">
+      <button type="button"mat-button (click)="drawer.toggle()">
+        <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon">menu
+        </mat-icon><font class="icon">Menu</font>
+      </button>
       <h1 align="center"><font color="green">Create a new account</font></h1>
       <p align="center">
         <mat-form-field style="width:30%;">

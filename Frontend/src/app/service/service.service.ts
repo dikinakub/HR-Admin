@@ -17,10 +17,14 @@ export class ServiceService {
       return this.http.get(this.API+'/employee',{})
 
   }
+  getaccountUsers(): Observable<any>{
+      return this.http.get(this.API+'/accountUsers',{})
+  }
 
   getUserPassword(id: String , password : String): Observable<any>{
       return this.http.post(this.API+'/Users/'+id+/Password/+password,{})
   }
+
 
 
 

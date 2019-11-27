@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {LoginDialog} from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {  MatAutocompleteModule,
           MatBadgeModule,
           MatBottomSheetModule,
@@ -43,12 +44,14 @@ import {  MatAutocompleteModule,
           MatToolbarModule,
           MatTooltipModule,
           MatTreeModule,
+
         } from '@angular/material';
 import { EmployeeAddComponent } from './employee-add/employee-add.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EmployeeMasterComponent } from './employee-master/employee-master.component';
 import { CreateAccountComponent } from './create-account/create-account.component';
+
 
 @NgModule({
   declarations: [
@@ -104,7 +107,16 @@ import { CreateAccountComponent } from './create-account/create-account.componen
           HttpClientModule,
           MatFormFieldModule,
 
+
+
        ],
+       exports: [
+            MatTableModule,
+            MatPaginatorModule,
+            MatSortModule,
+
+       ],
+
    entryComponents: [LoginDialog],
   providers: [],
   bootstrap: [AppComponent]

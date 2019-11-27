@@ -33,37 +33,7 @@ constructor(private router:Router,
                  });
     }
 
-    openemployee_add(){
-       this.router.navigate(['employee-add']);
-       console.log(this.data);
-    }
 
-    openemployee_master(){
-       this.router.navigate(['employee-master']);
-       console.log(this.data);
-    }
-
-
-    SubmitData(){
-      if(this.user == null){
-        alert("Please Check field To username");
-      }
-      else if(this.password == null){
-        alert("Please Check field To password");
-      }
-    else{
-     this.http.post(this.API + '/'+this.user +'/' + this.password ,{})
-                .subscribe(
-                               data => {
-                                   console.log('PUT Request is successful', data);
-                                   alert("บันทึกสำเร็จ");
-                               },
-                               error => {
-                                   console.log('Error', error);
-                               }
-                              );
-      }
-      }
 
    }
 

@@ -53,15 +53,6 @@ constructor(private router:Router,
                  });
     }
 
-    openemployee_add(){
-       this.router.navigate(['employee-add',{first:this.data.first}]);
-       console.log(this.data);
-    }
-
-    openemployee_master(){
-       this.router.navigate(['employee-master',{first:this.data.first}]);
-       console.log(this.data);
-    }
 
     SubmitData(){
      if(this.employeeMasterCustomerCode == null || this.empMasterFirstName == null
@@ -86,6 +77,7 @@ constructor(private router:Router,
                                data => {
                                    console.log('PUT Request is successful', data);
                                    alert("บันทึกสำเร็จ");
+                                   this.router.navigate(['employee-master',{first:this.data.first}]);
                                },
                                error => {
                                    console.log('Error', error);
