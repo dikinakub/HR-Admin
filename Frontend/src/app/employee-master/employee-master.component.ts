@@ -28,11 +28,7 @@ employee : Array<any>;
 employeeSelect : '';
 accountuser : Array<any>;
 
-
-//displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-//dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
-displayedColumns: string[] = ['select','empCodeID','empFristName','empLastName','NickName','Gender','Status','BirthDate','PersonID','Tel1','Email','AddressReal','AddressPerson','StartDate','Position','Department','empType','educations','bank','bankNumber'];
+displayedColumns: string[] = ['select','empCodeID','empFristName','NickName','Gender','Status','BirthDate','PersonID','Tel1','Email','AddressReal','AddressPerson','StartDate','Position','Department','empType','educations','bank','bankNumber','del','Edit'];
 dataSource = new MatTableDataSource<Apps>(this.employee);
 selection = new SelectionModel<Apps>(true, []);
 @ViewChild(MatPaginator, {static : true}) paginator : MatPaginator;
@@ -59,6 +55,7 @@ public API = '//localhost:8080/ILS_HR';   //for test
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.empCodeIDxx + 1}`;
   }
+
 constructor(private router:Router,
             private route:ActivatedRoute ,
             public dialog: MatDialog,
